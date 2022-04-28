@@ -1,0 +1,25 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "todo list project based on odin porject",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrendonChow/todo-list.git"
+  },
+  "author": "Grendon Chow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GrendonChow/todo-list/issues"
+  },
+  "homepage": "https://github.com/GrendonChow/todo-list#readme",
+  "devDependencies": {
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
+  }
+}

@@ -1,0 +1,1 @@
+(()=>{console.log("test");const e=document.createElement("div");e.classList.add("side-heading"),e.innerHTML="test";const t=document.createElement("div");t.classList.add("todo-count");const n=document.createElement("li"),d=document.querySelector(".projects-container");n.appendChild(e),n.appendChild(t),d.appendChild(n)})();
