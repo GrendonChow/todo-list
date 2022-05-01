@@ -8,6 +8,6 @@ butt.onclick = () =>{
     const count = document.createElement('div');
     count.classList.add('todo-count');
     const sidebar = document.querySelector('.sidebar');
-    project.appendChild(test2);
-    sidebar.appendChild(test);
+    project.appendChild(count);
+    sidebar.appendChild(project);
 };
