@@ -1,9 +1,9 @@
 :root{
     --color-primary: #FFFFFF;
     --color-secondary: #639FAB;
-    --color-secondary-shadow: #639FAB; 
     --color-accent: #1C5D99;
     --color-background: #BBCDE5;
+    --color-shadow: #a8b5c7; 
     --color-text: #222222;
 }
 
@@ -20,8 +20,8 @@ body{
     height: 100vh;
 }
 
-.header, .sidebar, .content{
-    padding: 20px 00px 20px 40px;
+.header, .content{
+    padding: 20px 40px 20px 40px;
 }
 
 .header{
@@ -35,17 +35,23 @@ h1{
 }
 
 .sidebar{
-    position: relative;
-    background-color: var(--color-secondary);
+    display: grid;
+    grid-template-columns: max-content, min-content;
+    grid-auto-rows: min-content;
+    background-color: var(--color-background);
 }
 
 .alltodo{
-    margin-right: 10px;
     cursor: pointer;
 }
 
-.alltodo:hover{
-    text-decoration: underline;
+.alltodo, #add-button{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.alltodo, .projects-heading, #add-button{
+    padding-left: 20px;
 }
 
 .projects-container{
@@ -70,39 +76,38 @@ li{
     align-self: center;
     font-size: 1.3rem;
     user-select: none;
+    margin-right: 10px;
 }
 
-.side-heading{
+.projects{
     color: var(--color-text);
-    margin-left: 15px;
+    padding-left: 30px;
     cursor: pointer;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 
-.side-heading:hover{
-    text-decoration: underline;
+.alltodo:hover, .projects:hover, #add-button:hover{
+    background-color: var(--color-shadow);
 }
+
 #add-button{
-    position: absolute;
     display:flex;
-    bottom: 5%;
-    background-color: var(--color-secondary);
-    border:5px solid var(--color-accent);
-    font-size: 3rem;
-    width: 65%;
-    justify-content: center;
-    border-radius: 10px;
+    background-color: var(--color-background);
     user-select: none;
     cursor: pointer;
+    order: 100;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    align-self: center;
 }
 
-#add-button:hover{
-    transition: 0.5s;
-    transform: scale(1.03);
-    background-color: var(--color-accent);
+img{
+    align-self: center;
 }
 
 .content{
-    background-color: var(--color-background);
+    background-color: var(--color-primary);
     padding: 40px;
 
 }
