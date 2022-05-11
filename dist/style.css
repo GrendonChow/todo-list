@@ -162,7 +162,7 @@ footer{
     font-size: 1rem;
 }
 
-.project-modal-container{
+.modal-container{
     visibility: hidden;
     position: fixed;
     height: 100%;
@@ -172,12 +172,22 @@ footer{
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal-content{
+.modal-content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: var(--color-background);
     padding: 1rem 1.5rem;
+    box-shadow: 10px 10px 20px var(--color-text);
+    border-radius: 10px;
 }
 
+/*new project modal*/
+.new-project-input ,  .new-project-btn{
+    font-size:1.5rem;
+}
+
+.new-project-heading{
+    margin:0;
+}
