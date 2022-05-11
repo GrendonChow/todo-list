@@ -4,28 +4,33 @@ import Todo from './todo';
 
 const projects = [];
 const forms = {};
+var currSelection = "";
 
 function pageLoad(){
     console.log("Page Load");
     createModal();
     modalEvent();
-
-    
-}
-
-function createTodoList(){
-    const heading = document.querySelector(".list-heading");
-
 }
 
 function addNewProject() {
-    var title = document.getElementById('name').value;
-    return new Project(title);
+    var name = document.getElementById('name').value;
+    var project;
+    if(checkProjectName(name)){
+        alert("Project already exists")
+        project = null;
+    }
+    else{
+        project = new Project(name);
+    }
+    return project;
+}
+
+function checkProjectName(name){
+    return (projects.filter(e => e.name.toUpperCase() === name.toUpperCase()).length > 0)
 }
 
 function updateDisplay()
 {
-
     const sidebar = document.querySelector('.projects-list');
     sidebar.textContent = "";
     projects.forEach(project => {
@@ -40,8 +45,12 @@ function updateDisplay()
     });
 }
 
+//Used to create modals to add or edit projects or todo items
 function createModal(){
     createNewProject();
+    createEditProject();
+    createNewTodo();
+    createEditTodo();
 }
 
 function createNewProject()
@@ -65,18 +74,23 @@ function createNewProject()
     submitBtn.type = "submit";
     submitBtn.textContent = "Ok";
 
-    projectForm.onsubmit = (event) =>{
-        event.preventDefault();
-        projects.push(addNewProject());
-        modal.style.visibility = "hidden";
-        projectForm.reset();
-        updateDisplay();
-    }
     projectForm.appendChild(heading);
     projectForm.appendChild(nameInput);
     projectForm.appendChild(submitBtn);
     forms['new-project'] = projectForm
 }
+
+function createEditProject(){
+
+};
+
+function createNewTodo(){
+
+};
+
+function createEditTodo(){
+
+};
 
 
 
@@ -84,7 +98,6 @@ function modalEvent(){
     const addBtn = document.querySelector("#add-button");
     const modal = document.querySelector(".modal-container");
     const modalContent = document.querySelector(".modal-content");
-
 
     window.onclick = (event) => { 
         if(event.target == modal){
@@ -96,6 +109,18 @@ function modalEvent(){
     addBtn.onclick = () =>{
         modalContent.appendChild(forms['new-project']);
         modal.style.visibility = "visible";
+    }
+
+    forms['new-project'].onsubmit = (event,) =>{
+        event.preventDefault();
+        var proj = addNewProject();
+        if(proj != null){
+            projects.push(proj);
+            updateDisplay();
+        }
+        modal.style.visibility = "hidden";
+        forms['new-project'].reset();
+
     }
 }
 
