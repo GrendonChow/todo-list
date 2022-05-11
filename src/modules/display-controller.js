@@ -45,7 +45,7 @@ function addNewProject(){
 
 function updateDisplay()
 {
-    
+
     const sidebar = document.querySelector('.projects-list');
     sidebar.textContent = "";
     projects.forEach(project => {
@@ -55,7 +55,6 @@ function updateDisplay()
         var count = document.createElement('div');
         count.textContent = project.count;
         count.classList.add('todo-count');
-
         li.appendChild(count);
         sidebar.appendChild(li);
     });
