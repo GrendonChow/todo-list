@@ -12,6 +12,9 @@ export default class Project {
     removeTodo(index){
         this._todo.splice(index, 1);
     }
+    get count(){
+        return this._todo.length;
+    }
 
     get todo(){
         return this._todo;

@@ -1,13 +1,11 @@
-console.log("test");
+import pageLoad from './modules/display-controller'
 
-const butt = document.querySelector("#add-button");
-butt.onclick = () =>{
-    const project = document.createElement('li');
-    project.classList.add('projects')
-    project.textContent = "test";
-    const count = document.createElement('div');
-    count.classList.add('todo-count');
-    const sidebar = document.querySelector('.sidebar');
-    project.appendChild(count);
-    sidebar.appendChild(project);
-};
+const projects = [];
+
+loadData()
+pageLoad();
+//Probably dont need dependng on how storage is handled
+function loadData(){
+    
+    console.log("LOAD from local storage");
+}

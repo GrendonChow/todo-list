@@ -20,7 +20,7 @@ body{
     height: 100vh;
 }
 
-.header, .content{
+.header{
     padding: 20px 40px 20px 40px;
 }
 
@@ -30,7 +30,7 @@ body{
     grid-column: 1 /-1; 
 }
 
-h1{
+h1, h2{
     margin:0;
 }
 
@@ -82,7 +82,7 @@ li{
 
 .projects{
     color: var(--color-text);
-    padding-left: 30px;
+    padding-left: 40px;
     cursor: pointer;
     padding-bottom: 5px;
     padding-top: 5px;
@@ -109,18 +109,20 @@ img{
 
 .content{
     background-color: var(--color-primary);
-    padding: 40px;
+}
 
+.content-head-container{
+    background-color: var(--color-secondary);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
 }
 
 .list-container{
     overflow-y: scroll;
     background-color: var(--color-primary);
     height: 100%;
-    box-shadow: 10px 10px 20px #222222 ;
-    border-radius: 20px;
     height: 700px;
-
 }
 
 .item{
@@ -147,3 +149,35 @@ img{
 .date{
     white-space: nowrap;
 }
+
+footer{
+    position: fixed;
+    grid-row: 1/ -1;
+    padding: 2px;
+    bottom: 0;
+    width: 100%;
+    left:0;
+    text-align: center;
+    background-color: var(--color-accent);
+    font-size: 1rem;
+}
+
+.project-modal-container{
+    visibility: hidden;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left:0;
+    top:0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-background);
+    padding: 1rem 1.5rem;
+}
+
