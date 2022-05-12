@@ -4,12 +4,33 @@ import Todo from './todo';
 
 const projects = [];
 const forms = {};
-var currSelection = "";
+var currSelection;
 
 function pageLoad(){
+    currSelection = document.querySelector(".alltodo");
+    displaySelection();
     console.log("Page Load");
     createModal();
     modalEvent();
+}
+
+function displaySelection()
+{
+    const heading = document.querySelector('.list-heading');
+    const alltodo = document.querySelector(".alltodo");
+    heading.textContent = currSelection.getAttribute("data-name");
+    console.log(currSelection.getAttribute("data-name"));
+
+    const projects = document.querySelectorAll(".projects");
+    projects.forEach((project) => {
+        project.classList.remove("current-selection");
+    })
+
+    alltodo.classList.remove("current-selection");
+
+    currSelection.classList.add("current-selection");
+    currSelection.classList.remove("hover");
+
 }
 
 function addNewProject() {
@@ -25,6 +46,7 @@ function addNewProject() {
     return project;
 }
 
+//Used to check if a project with matching name exists already
 function checkProjectName(name){
     return (projects.filter(e => e.name.toUpperCase() === name.toUpperCase()).length > 0)
 }
@@ -36,10 +58,18 @@ function updateDisplay()
     projects.forEach(project => {
         var li = document.createElement('li');
         li.classList.add('projects')
+        li.classList.add('hover')
         li.textContent = project.name;
+        li.setAttribute("data-name", project.name);
         var count = document.createElement('div');
         count.textContent = project.count;
         count.classList.add('todo-count');
+
+        li.onclick = () =>{
+            currSelection = li;
+            displaySelection();
+        }
+
         li.appendChild(count);
         sidebar.appendChild(li);
     });
@@ -52,6 +82,20 @@ function createModal(){
     createNewTodo();
     createEditTodo();
 }
+
+function loadList(name){
+    changeSelection(name);
+
+}
+
+function changeSelection(li, name){
+    if(currSelection != name)
+    {
+        const lists = document.querySelectorAll(".projects");
+        currSelection = name;
+    }
+
+};
 
 function createNewProject()
 {

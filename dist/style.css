@@ -46,8 +46,8 @@ h1, h2{
 }
 
 .alltodo, #add-button{
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 17px;
+    padding-bottom: 17px;
 }
 
 .alltodo, .projects-heading, #add-button{
@@ -88,8 +88,9 @@ li{
     padding-top: 5px;
 }
 
-.alltodo:hover, .projects:hover, #add-button:hover{
-    background-color: var(--color-shadow);
+.current-selection{
+    background-color: var(--color-secondary);
+
 }
 
 #add-button{
@@ -103,12 +104,18 @@ li{
     align-self: center;
 }
 
+.hover:hover, #add-button:hover{
+    background-color: var(--color-shadow);
+}
+
+
 img{
     align-self: center;
 }
 
 .content{
     background-color: var(--color-primary);
+    margin-left: 10px;
 }
 
 .content-head-container{
